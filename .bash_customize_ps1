@@ -1,3 +1,6 @@
+export GITAWAREPROMPT=$HOME/.bash/git-aware-prompt
+source "${GITAWAREPROMPT}/main.sh"
+
 export COLOR_BLUE="\[\033[38;5;45m\]"
 export COLOR_GREEN="\[\033[38;5;35m\]"
 export COLOR_YELLOW="\[\033[38;5;226m\]"
@@ -34,6 +37,7 @@ $sep_color@$FONT_RESET \
 $prim_color\h \
 $sep_color:$FONT_RESET \
 $work_color\w \
+\[$txtcyn\]\$git_branch\[$txtred\]\$git_dirty\[$txtrst\] \
 $sep_color>$FONT_RESET \
 $time_color\T\
 \n\
