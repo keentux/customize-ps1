@@ -1,0 +1,42 @@
+export COLOR_BLUE="\[\033[38;5;45m\]"
+export COLOR_GREEN="\[\033[38;5;35m\]"
+export COLOR_YELLOW="\[\033[38;5;226m\]"
+export COLOR_RED="\[\033[38;5;1m\]"
+export COLOR_PURPLE="\[\033[38;5;93m\]"
+export FONT_RESET="\[$(tput sgr0)\]"
+export FONT_BOLD="\[$(tput bold)\]"
+
+# Customize PS1 for bash
+# arg1 - user/host color
+# arg2 - workspace color
+# arg3 - time color
+# arg5 - separator color
+function custom_ps1() {
+        local prim_color=""
+        local work_color=""
+        local time_color=""
+        local sep_color=""
+        if [ -n $1 ]; then
+                prim_color="$1"
+        fi
+        if [ -n $2 ]; then
+                work_color="$2"
+        fi
+        if [ -n $3 ]; then
+                time_color="$3"
+        fi
+        if [ -n $4 ]; then
+                sep_color="$4"
+        fi
+        export PS1="\
+$prim_color\u \
+$sep_color@$FONT_RESET \
+$prim_color\h \
+$sep_color:$FONT_RESET \
+$work_color\w \
+$sep_color>$FONT_RESET \
+$time_color\T\
+\n\
+$sep_color$ $FONT_RESET"
+}
+
